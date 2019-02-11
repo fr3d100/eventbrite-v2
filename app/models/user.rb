@@ -9,7 +9,8 @@ class User < ApplicationRecord
 	validates :email, 
 		format: { with: URI::MailTo::EMAIL_REGEXP },
 		uniqueness: true,
-		presence: true
+		presence: true,
+		length: { minimum: 3 }
 
 	validates :first_name,
 		presence: true

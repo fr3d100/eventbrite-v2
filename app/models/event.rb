@@ -16,7 +16,7 @@ class Event < ApplicationRecord
 		presence: true,
 		length: { maximum: 140, minimum: 5 }
 
-	validates :title,
+	validates :description,
 		presence: true,
 		length: { maximum: 1000, minimum: 20 }
 	
