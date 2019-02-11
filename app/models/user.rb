@@ -8,7 +8,6 @@ class User < ApplicationRecord
 	#Validations
 	validates :email, 
 		format: { with: URI::MailTo::EMAIL_REGEXP },
-		uniqueness: true,
 		presence: true,
 		length: { minimum: 3 }
 
@@ -17,5 +16,12 @@ class User < ApplicationRecord
 
 	validates :last_name,
 		presence: true
+
+
+	after_create :welcome_send
+
+	def welcome_send
+		UserMailer.welcome_mail(self).deliver_now
+	end
 
 end
