@@ -33,13 +33,13 @@ rspec
 ```
 rails console
 ```
-### Créer un utilisateur
+### Créer un utilisateur (:warning:rentre bien ton vrai mail:warning:)
 ```
 u = User.create(first_name: "John", last_name: "Doe", email: "TONEMAILVALIDE@MAILVALIDE.COM", description: "La super desc de l'utilisateur que tu viens de créer", encrypted_password: "azerty")
 ```
 ### Créer un événement
 ```
-e = 
+e = Event.create(title:'May awesome event', description:'That will be really be an awesome event !', start_date: Time.now+30, duration: 90, location: 'Ibiza', price: 100, admin: u)
 ```
 
 ### Créer un attendance
