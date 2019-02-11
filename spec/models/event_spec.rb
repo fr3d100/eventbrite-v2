@@ -27,7 +27,7 @@ RSpec.describe Event, type: :model do
 
 		describe "price" do 
 			it {expect(@event).to validate_presence_of(:price)}
-			it {expect(@event).to validate_length_of(:price)}
+			it {expect(@event).to validate_numericality_of(:price)}
 		end
 
 		describe "location" do 
