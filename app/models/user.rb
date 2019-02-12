@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
 	#Relationships
 	has_many :attendances
@@ -11,11 +15,11 @@ class User < ApplicationRecord
 		presence: true,
 		length: { minimum: 3 }
 
-	validates :first_name,
-		presence: true
+	# validates :first_name,
+		# presence: true
 
-	validates :last_name,
-		presence: true
+	# validates :last_name,
+		# presence: true
 
 
 	after_create :welcome_send
