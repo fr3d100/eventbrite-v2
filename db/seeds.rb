@@ -14,7 +14,7 @@ Attendance.destroy_all
 User.destroy_all
 
 # Creation of 10 users
-10.times do 
+50.times do 
 	fn = Faker::Name.first_name
 	ln = Faker::Name.last_name
 	desc = "Hello my name is #{fn} and I am #{Faker::Number.between(18, 30)} y-o. I would like to attempt at least 1 event a week"

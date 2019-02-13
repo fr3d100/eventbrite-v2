@@ -54,6 +54,7 @@
 		<div class="col-sm-12 d-flex justify-content-center m-3">
 			<%= form_tag(event_attendances_path(@event.id), method: "post", :style => "width:500px") do %>
 				<%= form_tag charges_path do %>
+				<input type="hidden" value="<%= form_authenticity_token() %>"name="authenticity_token"/>
 				  <article>
 				    <% if flash[:error].present? %>
 				      <div id="error_explanation">
