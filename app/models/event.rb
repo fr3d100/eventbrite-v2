@@ -22,7 +22,7 @@ class Event < ApplicationRecord
 	
 	validates :price,
 		presence: true,
-		numericality: { less_than_or_equal_to: 1000, more_than_or_equal_to: 1,  only_integer: true }
+		numericality: { less_than_or_equal_to: 1000, greater_than_or_equal_to: 1,  only_integer: true }
 
 	validates :location,
 		presence: true
@@ -30,6 +30,19 @@ class Event < ApplicationRecord
 	validate :invalid_start_date?
 
 	validate :invalid_duration?
+
+
+	def end_date
+		return (self.start_date + self.duration*60)
+	end
+
+	def is_user_attendant?(user)
+  	if self.users.find_by_id(user.id) != nil 
+  		return true
+  	else 
+  		return false
+  	end
+  end
 
 
 	private 
@@ -45,5 +58,7 @@ class Event < ApplicationRecord
 			errors.add(:duration, 'Must be a multiple of 5')
 		end
 	end
+
+
 
 end

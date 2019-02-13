@@ -13,21 +13,20 @@ Event.destroy_all
 Attendance.destroy_all
 User.destroy_all
 
-# Creation of 50 users
-50.times do 
+# Creation of 10 users
+10.times do 
 	fn = Faker::Name.first_name
 	ln = Faker::Name.last_name
 	desc = "Hello my name is #{fn} and I am #{Faker::Number.between(18, 30)} y-o. I would like to attempt at least 1 event a week"
-	User.create(first_name: fn, last_name: ln, email: Faker::Internet.email, description: desc )
+	User.create(first_name: fn, last_name: ln, email: Faker::Internet.email, description: desc, password: "aaaaaa")
 end
 
 puts "50 users have been created"
 
 #Creation of 10 events
 10.times do
-	Event.create(title: Faker::Company.buzzword , start_date: Faker::Time.between(DateTime.now, DateTime.now+30) ,duration: Faker::Number.between(30, 240), admin: User.order("RANDOM()").first, price:Faker::Number.between(1, 1000) , location: Faker::GameOfThrones.city)
+	Event.create(title: Faker::Company.buzzword, description: "This is a fucking good event, and you shoul attend to it" , start_date: Faker::Time.between(DateTime.now, DateTime.now+10000) ,duration: 15, admin: User.order("RANDOM()").first, price:Faker::Number.between(1, 1000) , location: Faker::GameOfThrones.city)
 end
-
 puts "10 events have been created"
 
 #Add attendees to each event

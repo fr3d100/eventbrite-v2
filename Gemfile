@@ -45,6 +45,7 @@ group :development, :test do
   gem "nyan-cat-formatter"
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem "letter_opener"
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -75,5 +76,5 @@ gem 'table_print', '~> 1.5', '>= 1.5.6'
 gem 'faker', '~> 1.6', '>= 1.6.6'
 gem 'bootstrap-form', '~> 3.0'
 gem 'pg_search'
-gem 'dotenv-rails'
 gem 'devise', '~> 4.2'
+gem 'stripe'
