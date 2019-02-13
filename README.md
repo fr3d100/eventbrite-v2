@@ -25,10 +25,11 @@ rails db:migrate
 rails db:seed
 ```
 
-## La marche à suivre pour lancer les tests de l'application
+## La marche à suivre pour lancer les tests de la vue events#show :
 ```
-rspec
+rspec spec/views/events/show.html.erb_spec.rb
 ```
+
 
 Fait avec :hearts: par @Fred
 
