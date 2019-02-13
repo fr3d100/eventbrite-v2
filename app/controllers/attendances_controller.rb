@@ -1,6 +1,7 @@
 class AttendancesController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :is_admin_user?, only: [:index]
+
   def index
     @event = Event.find(params['event_id'])
   end
@@ -43,4 +44,16 @@ class AttendancesController < ApplicationController
 
   def show
   end
+
+  private
+
+  def is_admin_user?
+    @event = Event.find(params['event_id'])
+    unless current_user == @event.admin
+      flash[:danger] = "Ces informations sont restreintes aux admin de l'évènement"
+      redirect_to event_path(@event.id)
+    end
+  end
+
+
 end
