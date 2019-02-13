@@ -1,5 +1,7 @@
 # Bienvenue sur mon super concurrent de EventBrite !
 
+[Version en production](https://eventbrite-fb.herokuapp.com/)
+
 ## La marche à suivre pour récupérer et tester l'application :
 
 ### Récupérer le projet en local
@@ -26,25 +28,6 @@ rails db:seed
 ## La marche à suivre pour lancer les tests de l'application
 ```
 rspec
-```
-## La marche à suivre pour vérifier que les mails fonctionnent correctement
-
-### Lancer la console
-```
-rails console
-```
-### Créer un utilisateur (:warning:rentre bien ton vrai mail:warning:)
-```
-u = User.create(first_name: "John", last_name: "Doe", email: "TONEMAILVALIDE@MAILVALIDE.COM", description: "La super desc de l'utilisateur que tu viens de créer", encrypted_password: "azerty")
-```
-### Créer un événement
-```
-e = Event.create(title:'May awesome event', description:'That will be really be an awesome event !', start_date: Time.now+30, duration: 90, location: 'Ibiza', price: 100, admin: u)
-```
-
-### Créer un attendance
-```
-a = Attendance.create(event: e, user: u, stripe_customer_id: "123")
 ```
 
 Fait avec :hearts: par @Fred
