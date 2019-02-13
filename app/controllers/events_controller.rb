@@ -5,8 +5,36 @@ class EventsController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   def show
   	@event = Event.find(params['id'])
+  end
+
+  def create
+    @event = Event.new
+    @event.title = params['title']
+    @event.description = params['description']
+    @event.location = params['location']
+    @event.start_date = params['start_date']
+    @event.duration = params['duration']
+    @event.price = params['price']
+    @event.admin = current_user
+
+    if @event.save # essaie de sauvegarder en base @gossip
+      flash[:success] = "L'évènement a été créé avec succès!"
+      redirect_to event_path(@event.id)
+    else
+      flash[:danger] = []
+      @event.errors.full_messages.each do |message|
+        flash[:danger] << message
+      end
+      flash[:danger] = flash[:danger].join(" & ")
+
+      redirect_to new_event_path
+    end
+
   end
 
   def edit
